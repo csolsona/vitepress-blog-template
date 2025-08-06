@@ -1,0 +1,21 @@
+{
+	"name": "vitepress-blog-template",
+	"devDependencies": {
+		"@types/bun": "latest",
+		"prettier": "^3.6.2",
+		"prettier-plugin-vitepress": "^0.0.10",
+		"vitepress": "^1.6.3",
+		"vue": "^3.5.18"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"private": true,
+	"scripts": {
+		"dev": "vitepress dev",
+		"build": "vitepress build",
+		"preview": "vitepress preview",
+		"format": "prettier --write ."
+	},
+	"type": "module"
+}

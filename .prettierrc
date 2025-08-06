@@ -1,0 +1,32 @@
+{
+	"plugins": ["prettier-plugin-vitepress"],
+	"tabWidth": 4,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": true,
+	"vueIndentScriptAndStyle": true,
+	"trailingComma": "all",
+	"bracketSpacing": true,
+	"endOfLine": "lf",
+	"overrides": [
+		{
+			"files": "*.md",
+			"options": {
+				"printWidth": 80,
+				"proseWrap": "always"
+			}
+		},
+		{
+			"files": ["*.json", "*.json5"],
+			"options": {
+				"printWidth": 80
+			}
+		},
+		{
+			"files": "bun.lock",
+			"options": {
+				"parser": "json"
+			}
+		}
+	]
+}
