@@ -4,9 +4,9 @@
 
 <template>
 	<ul>
-		<li v-for="post in posts">
-			<span>
-				<a :href="post.url">{{ post.title }}</a></span
+		<li v-for="post in posts" :key="post.url">
+			<span
+				><a :href="post.url">{{ post.title }}</a> </span
 			>,
 			<span>{{ post.date.string }}</span>
 			<span v-html="post.excerpt"></span>

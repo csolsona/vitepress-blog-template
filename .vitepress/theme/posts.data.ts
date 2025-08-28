@@ -19,7 +19,7 @@ export default createContentLoader('posts/*.md', {
 		return raw
 			.map(({ url, frontmatter, excerpt }) => ({
 				title: frontmatter.title,
-				url,
+				url: url.replace(/(\/posts\/\d{4}-\d{2})-\d{2}-(.+)/, '$1-$2'),
 				excerpt,
 				date: formatDate(frontmatter.date),
 			}))

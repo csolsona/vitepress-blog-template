@@ -11,12 +11,12 @@ export default defineConfig({
 			{ text: 'Home', link: '/' },
 			{ text: 'About', link: '/about.md' },
 		],
-
+		aside: false,
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' },
 		],
 	},
 	rewrites: {
-		'posts/:year-:month-:day-:slug.md': 'posts/:slug.md',
+		'posts/:year-:month-:day-:slug.md': 'posts/:year-:month-:slug.md',
 	},
 });

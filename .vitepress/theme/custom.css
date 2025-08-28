@@ -1,0 +1,7 @@
+.vp-doc p,
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc figure {
+	margin: 0 0 32px;
+}
