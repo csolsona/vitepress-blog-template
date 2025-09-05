@@ -1,4 +1,5 @@
 import { createContentLoader } from 'vitepress';
+import { PhotoId } from './types/photo.types';
 
 interface Post {
 	title: string;
@@ -7,6 +8,7 @@ interface Post {
 		time: number;
 		string: string;
 	};
+	cover: PhotoId;
 	excerpt: string | undefined;
 }
 
@@ -22,6 +24,7 @@ export default createContentLoader('posts/*.md', {
 				url: url.replace(/(\/posts\/\d{4}-\d{2})-\d{2}-(.+)/, '$1-$2'),
 				excerpt,
 				date: formatDate(frontmatter.date),
+				cover: frontmatter.cover,
 			}))
 			.sort((a, b) => b.date.time - a.date.time);
 	},
