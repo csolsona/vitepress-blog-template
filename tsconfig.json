@@ -1,9 +1,9 @@
 {
-	"include": ["**/*.ts", ".vitepress/**/*.ts", "**/*.vue", "**/*.md"],
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
+		"lib": ["ESNext", "DOM"],
 		"strict": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
@@ -13,8 +13,11 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./*"]
-		}
+		},
+		"types": ["vitepress/client", "vue"]
 	},
+	"include": ["**/*.ts", "**/*.d.ts", "**/*.vue", "**/*.md"],
+	"exclude": ["node_modules", "dist"],
 	"vueCompilerOptions": {
 		"vitePressExtensions": [".md"]
 	}

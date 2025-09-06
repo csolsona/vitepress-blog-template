@@ -21,8 +21,10 @@ export default createContentLoader('posts/*.md', {
 		return raw
 			.map(({ url, frontmatter, excerpt }) => ({
 				title: frontmatter.title,
+				// Simplify the URL by removing the day from the date in the path
 				url: url.replace(/(\/posts\/\d{4}-\d{2})-\d{2}-(.+)/, '$1-$2'),
-				excerpt,
+				// Remove all HTML tags from the excerpt
+				excerpt: excerpt?.replace(/<[^>]+>/g, '').trim(),
 				date: formatDate(frontmatter.date),
 				cover: frontmatter.cover,
 			}))

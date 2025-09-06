@@ -2,6 +2,7 @@
 	import { computed, ref } from 'vue';
 	import { photos } from '@/data/photos';
 	import { ImageProps } from '../types/photo.types';
+	import ImageModal from './ImageModal.vue';
 
 	const props = defineProps<ImageProps>();
 
@@ -44,18 +45,7 @@
 			@click="openModal"
 		/>
 		<figcaption v-if="caption">{{ caption }}</figcaption>
-		<ImageModal
-			v-if="showModal && props.type === 'id'"
-			:type="props.type"
-			:id="props.id"
-			@close="closeModal"
-		/>
-		<ImageModal
-			v-if="showModal && props.type === 'src'"
-			:type="props.type"
-			:src="props.src"
-			@close="closeModal"
-		/>
+		<ImageModal v-if="showModal" v-bind="props" @close="closeModal" />
 	</figure>
 </template>
 

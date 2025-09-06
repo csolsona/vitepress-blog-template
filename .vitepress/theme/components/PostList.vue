@@ -1,6 +1,6 @@
 <script setup lang="ts">
-	import { photos } from '@/data/photos.js';
-	import { data as posts } from '../posts.data.js';
+	import { photos } from '@/data/photos';
+	import { data as posts } from '../posts.data';
 </script>
 
 <template>
@@ -21,6 +21,7 @@
 			<h2 class="post-title">
 				<a :href="post.url">{{ post.title }}</a>
 			</h2>
+			<p class="post-excerpt">{{ post.excerpt }}</p>
 		</li>
 	</ul>
 </template>
@@ -52,13 +53,19 @@
 
 	.post-cover {
 		width: 100%;
-		max-height: 220px;
+		height: 220px;
 
 		position: relative;
-		display: inline-block;
+		display: block;
+
+		overflow: hidden;
 	}
 
 	.post-cover img {
+		display: block;
+		object-fit: fill;
+		width: 100%;
+		height: 100%;
 		border-radius: 8px;
 	}
 

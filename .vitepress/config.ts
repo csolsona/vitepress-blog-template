@@ -17,6 +17,6 @@ export default defineConfig({
 		],
 	},
 	rewrites: {
-		'posts/:year-:month-:day-:slug.md': 'posts/:year-:month-:slug.md',
+		'posts/:year-:month-:day-:slug(.*).md': 'posts/:year-:month-:slug.md',
 	},
 });

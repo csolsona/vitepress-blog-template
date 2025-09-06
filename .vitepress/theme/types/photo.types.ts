@@ -1,8 +1,8 @@
 import { photos } from '@/data/photos';
 
 export type PhotoData = {
-	srcSmall: string;
 	srcOriginal: string;
+	srcSmall: string;
 	srcXS?: string;
 	title: string;
 	alt?: string;
@@ -29,7 +29,7 @@ type PhotoByIdProps = {
 
 type PhotoBySrcProps = {
 	type: 'src';
-	src: string;
+	src: string; // FIXME: Console warns about "missing required prop"
 	alt?: string;
 	caption?: string;
 };
