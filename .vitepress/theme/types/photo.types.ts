@@ -21,6 +21,10 @@ export type PhotoData = {
 
 export type PhotoId = keyof typeof photos;
 
+export const isPhotoId = (id: string): id is PhotoId => {
+	return id in photos;
+};
+
 type PhotoByIdProps = {
 	type: 'id';
 	id: PhotoId;

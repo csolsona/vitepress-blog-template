@@ -1,6 +1,15 @@
 <script setup lang="ts">
 	import { photos } from '@/data/photos';
 	import { data as posts } from '../posts.data';
+	import { Post } from '@/.vitepress/theme/types/post.types';
+	import { isPhotoId } from '../types/photo.types';
+	import { IMAGE_NOT_FOUND_SRC } from '../constants';
+
+	function getPostCoverSrc(post: Post): string {
+		return isPhotoId(post.cover)
+			? (photos[post.cover].srcXS ?? photos[post.cover].srcSmall)
+			: IMAGE_NOT_FOUND_SRC;
+	}
 </script>
 
 <template>
@@ -8,13 +17,7 @@
 		<li v-for="post in posts" :key="post.url" class="post-item">
 			<div class="post-cover">
 				<a :href="post.url">
-					<img
-						:src="
-							photos[post.cover].srcXS ??
-							photos[post.cover].srcSmall
-						"
-						alt="Cover"
-					/>
+					<img :src="getPostCoverSrc(post)" alt="Cover" />
 					<span class="post-date">{{ post.date.string }}</span>
 				</a>
 			</div>
@@ -63,7 +66,7 @@
 
 	.post-cover img {
 		display: block;
-		object-fit: fill;
+		object-fit: cover;
 		width: 100%;
 		height: 100%;
 		border-radius: 8px;

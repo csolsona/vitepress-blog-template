@@ -1,20 +1,10 @@
 import { createContentLoader } from 'vitepress';
-import { PhotoId } from './types/photo.types';
-
-interface Post {
-	title: string;
-	url: string;
-	date: {
-		time: number;
-		string: string;
-	};
-	cover: PhotoId;
-	excerpt: string | undefined;
-}
+import { Post } from './types/post.types';
 
 declare const data: Post[];
 export { data };
 
+// TODO: Quizás mover a post.types?
 export default createContentLoader('posts/*.md', {
 	excerpt: true,
 	transform(raw): Post[] {

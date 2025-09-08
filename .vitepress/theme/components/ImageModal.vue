@@ -2,6 +2,7 @@
 	import { photos } from '@/data/photos';
 	import { ImageProps } from '../types/photo.types';
 	import { onMounted, onUnmounted, computed } from 'vue';
+	import { IMAGE_NOT_FOUND_SRC } from '../constants';
 
 	// TODO: Quitar el warn de la consola en algún momento.
 	const props = defineProps<ImageProps>();
@@ -18,8 +19,7 @@
 			() =>
 				(props.type === 'src'
 					? props.src
-					: photos[props.id].srcSmall) ??
-				'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png',
+					: photos[props.id].srcSmall) ?? IMAGE_NOT_FOUND_SRC,
 		),
 		alt: computed<string | undefined>(() =>
 			props.type === 'src' ? props.alt : photos[props.id].alt,

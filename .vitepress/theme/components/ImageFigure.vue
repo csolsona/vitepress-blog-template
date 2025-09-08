@@ -3,13 +3,14 @@
 	import { photos } from '@/data/photos';
 	import { ImageProps } from '../types/photo.types';
 	import ImageModal from './ImageModal.vue';
+	import { IMAGE_NOT_FOUND_SRC } from '../constants';
 
 	const props = defineProps<ImageProps>();
 
 	const imageSrc = computed<string>(
 		() =>
 			(props.type === 'src' ? props.src : photos[props.id].srcSmall) ??
-			'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png',
+			IMAGE_NOT_FOUND_SRC,
 	);
 
 	// TODO: Extraer a un util (?)
@@ -18,8 +19,7 @@
 			() =>
 				(props.type === 'src'
 					? props.src
-					: photos[props.id].srcSmall) ??
-				'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png',
+					: photos[props.id].srcSmall) ?? IMAGE_NOT_FOUND_SRC,
 		),
 		alt: computed<string | undefined>(() =>
 			props.type === 'src' ? props.alt : photos[props.id].alt,
